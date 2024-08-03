@@ -9,9 +9,9 @@ from enum import Enum
 
 
 class CompabilityType(Enum):
-    Semantic = 1
+    Textual = 1
     API = 2
-    Textual = 3
+    Semantic = 3
 
 
 IR_files = [
