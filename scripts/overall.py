@@ -50,7 +50,7 @@ def plot(compability_type: CompabilityType):
     y = [y_i / y[-1] * 100 for y_i in y]
     # draw the plot
     plt.figure(figsize=(32, 24))
-    plt.plot(x, y, marker="o", markersize=12, lw=3)
+    plt.plot(x, y, marker="o", markersize=16, lw=4)
     plt.xticks(x, x_label, rotation=45, fontsize=20, ha="right", color="white")
     # emphasize major versions
     for i in range(len(x_label)):
@@ -62,10 +62,12 @@ def plot(compability_type: CompabilityType):
     plt.hlines = plt.gca().axhline(y=0, lw=3)
     plt.yticks([10 * t for t in range(11)], [str(10 * t) + "%" for t in range(11)], fontsize=28)
     plt.title(
-        f"Upgrading trend of IR {compability_type.name} from {x_label[0]} to {x_label[-1]}",
-        fontsize=36,
+        f"Cumulative pgrading trend of IR {compability_type.name} from {x_label[0]} to {x_label[-1]}",
+        fontsize=40,
         pad=24,
     )
+    plt.xlabel("LLVM main version", fontsize=36, labelpad=24)
+    plt.ylabel("Cumulative LoC changed", fontsize=32, labelpad=24)
     plt.savefig(path.join("./figures", f"{compability_type.name}.png"))
 
 
